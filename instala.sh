@@ -114,6 +114,8 @@ mkdir /etc/rom  > /dev/null 2>&1
 mkdir /etc/bin  > /dev/null 2>&1
 mkdir /etc/nanobc  > /dev/null 2>&1
 msg -bar2
+sleep 10
+shutdown -r now
 }
 ofus () {
 unset txtofus
@@ -172,11 +174,11 @@ chmod +x ${ARQ}/$1
 fun_ip
 wget -O /usr/bin/trans https://raw.githubusercontent.com/dam20/ADM-ULTIMATE-NEW-FREE/master/Install/trans &> /dev/null
 msg -bar2
-msg -ama "[ NEW - ULTIMATE - SCRIPT ] ➣ \033[1;33m[\033[1;34m OFICIAL BY-DANKELTHAHER \033[1;33m]"
+msg -ama "[ NEW - ULTIMATE - SCRIPT ] ➣ \033[1;33m[\033[1;34m OFICIAL BY VPS-AR \033[1;33m]"
 [[ $1 = "" ]] && funcao_idioma || {
 [[ ${#1} -gt 2 ]] && funcao_idioma || id="$1"
  }
-#Key="qra-atsilK0@84%ab97cda8f?K8888:8@@+95+84?+94@"
+
 REQUEST=$(echo $SCPresq|$SUB_DOM)
 IP="104.238.135.147" && echo "$IP" > /usr/bin/vendor_code
 #agregado
@@ -222,6 +224,3 @@ if [[ -e $HOME/lista-arq ]] && [[ ! $(cat $HOME/lista-arq|grep "KEY INVALIDA!") 
 else
 invalid_key
 fi
-
-
-shutdown -r now
