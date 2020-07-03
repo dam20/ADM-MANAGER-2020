@@ -7,4 +7,4 @@
 
 ## Installation
 
-apt-get update && apt-get upgrade -y: wget https://raw.githubusercontent.com/dam20/ADM-MANAGER-2020/master/VPS-AR.sh; chmod 777 Dankelthaher.sh* && ./Dankelthaher.sh*
+apt-get update && apt-get upgrade -y: wget https://raw.githubusercontent.com/dam20/ADM-MANAGER-2020/master/VPS-AR.sh; chmod 777 VPS-AR.sh* && ./VPS-AR.sh*
