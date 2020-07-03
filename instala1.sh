@@ -179,19 +179,40 @@ mv -f ${SCPinstal}/$1 ${ARQ}/$1
 chmod +x ${ARQ}/$1
 }
 
+function_verify () {
+  permited=$(curl -sSL "https://raw.githubusercontent.com/VPS-MX/VPS-MX-8.0/master/Control-IP")
+  [[ $(echo $permited|grep "${IP}") = "" ]] && {
+  echo -e "\n\n\n\033[1;95m======================================================\n ¡ESTA KEY NO CONCUERDA CON EL INSTALADOR!,CONATACTE A @Kalix1\n======================================================\n"
+  [[ -d /etc/newadm ]] && rm -rf /etc/newadm
+  exit 1
+  } || {
+  ### INTALAR VERCION DE SCRIPT
+  v1=$(curl -sSL "https://raw.githubusercontent.com/VPS-MX/VPS-MX-8.0/master/Vercion")
+  echo "$v1" > /etc/versin_script
+  }
+}
+
+error_fun () {
+msg -bar2 && msg -verm "ERROR de enlace VPS<-->GENERADOR" && msg -bar2
+[[ -d ${SCPinstal} ]] && rm -rf ${SCPinstal}
+exit 1
+}
+
+invalid_key () {
+msg -bar2 && msg -verm "#¡Key Invalida#! " && msg -bar2
+[[ -e $HOME/lista-arq ]] && rm $HOME/lista-arq
+exit 1
+}
+
 #Principal
 fun_ip
 wget -O /usr/bin/trans https://raw.githubusercontent.com/dam20/ADM-MANAGER-2020/master/Install/trans &> /dev/null
 msg -bar2
 msg -ama "[ NEW - ULTIMATE - SCRIPT ] ➣ \033[1;33m[\033[1;34m OFICIAL BY VPS-AR \033[1;33m]"
 [[ $1 = "" ]] && funcao_idioma || {
-[[ ${#1} -gt 2 ]] && funcao_idioma || id="$1"
- }
+  [[ ${#1} -gt 2 ]] && funcao_idioma || id="$1"
+}
 
-#REQUEST=$(echo $SCPresq|$SUB_DOM)
-#IP="104.238.135.147" && echo "$IP" > /usr/bin/vendor_code
-
-#agregado
 while [[ ! $Key ]]; do
 msg -bar2 && msg -ne "# DIGITE LA KEY #: " && read Key
 tput cuu1 && tput dl1
@@ -231,7 +252,7 @@ if [[ -e $HOME/lista-arq ]] && [[ ! $(cat $HOME/lista-arq|grep "KEY INVALIDA!") 
    inst_components
    echo "$Key" > ${SCPdir}/key.txt
    [[ -d ${SCPinstal} ]] && rm -rf ${SCPinstal}   
-   [[ ${#id} -gt 2 ]] && echo "pt" > ${SCPidioma} || echo "${id}" > ${SCPidioma}
+   [[ ${#id} -gt 2 ]] && echo "es" > ${SCPidioma} || echo "${id}" > ${SCPidioma}
    [[ ${byinst} = "true" ]] && install_fim
 else
 invalid_key
