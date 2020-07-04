@@ -1,7 +1,7 @@
 #!/bin/bash
 apt-get install lsof
 apt-get install sudo
-echo - e "&lt;span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce_SELRES_start"&gt;&lt;/span&gt;root ALL=(ALL) ALL" >> /etc/sudoers
+#echo - e "&lt;span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce_SELRES_start"&gt;&lt;/span&gt;root ALL=(ALL) ALL" >> /etc/sudoers
 apt-get install figlet -y
 apt-get install cowsay -y
 echo -e ""
@@ -208,7 +208,7 @@ exit 1
 fun_ip
 wget -O /usr/bin/trans https://raw.githubusercontent.com/dam20/ADM-MANAGER-2020/master/Install/trans &> /dev/null
 msg -bar2
-msg -ama "[ NEW - ULTIMATE - SCRIPT ] ➣ \033[1;33m[\033[1;34m OFICIAL BY VPS-AR \033[1;33m]"
+msg -ama "[ ADM MANAGER ] ➣ \033[1;33m[\033[1;34m OFICIAL BY VPS-AR \033[1;33m]"
 [[ $1 = "" ]] && funcao_idioma || {
   [[ ${#1} -gt 2 ]] && funcao_idioma || id="$1"
 }
@@ -231,7 +231,7 @@ updatedb
 
 if [[ -e $HOME/lista-arq ]] && [[ ! $(cat $HOME/lista-arq|grep "KEY INVALIDA!") ]]; then
    msg -bar2
-   msg -ama "$(source trans -b pt:${id} "BEM VINDO, OBRIGADO POR UTILIZAR"|sed -e 's/[^a-z -]//ig'): \033[1;31m[NEW-ULTIMATE]"
+   msg -ama "$(source trans -b pt:${id} "BIENVENIDOS"|sed -e 's/[^a-z -]//ig'): \033[1;31m[ADM MANAGER BY VPS-AR]"
    REQUEST=$(ofus "$Key"|cut -d'/' -f2)
    [[ ! -d ${SCPinstal} ]] && mkdir ${SCPinstal}
    pontos="."
