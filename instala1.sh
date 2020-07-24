@@ -114,6 +114,7 @@ valor3="\033[1;32m[$i] > \033[1;33m$valor3"
 install_fim () {
   msg -ama "$(source trans -b es:${id} "Instalación completa, utilice los comandos"|sed -e 's/[^a-z -]//ig')" && msg bar2
   echo -e " menu / adm" && msg -verm "$(source trans -b pt:${id} "Su servidor se reiniciara para completar la instalación"|sed -e 's/[^a-z -]//ig')"
+  ln -fs /usr/share/zoneinfo/America/Buenos_Aires /etc/localtime > /dev/null 2>&1
   mkdir /etc/crondbl  > /dev/null 2>&1 
   mkdir /etc/rom  > /dev/null 2>&1
   mkdir /etc/bin  > /dev/null 2>&1
