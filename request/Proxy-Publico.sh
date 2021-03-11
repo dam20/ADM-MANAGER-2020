@@ -7,14 +7,17 @@ figlet ..dankelthaher.. | lolcat
 BARRA="\e[0;31m➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖\e[0m"
 echo -e "\e[0;31m➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖\e[0m"
 if [[ ! -e /usr/bin/python ]]; then
-echo -e "Introduca Estos Comandos En La Terminal"
-echo -e "apt-get install python -y"
-echo -e "apt-get install python pip -y"
-exit
+apt-get install python-pip -y > /dev/null 2>&1
+#echo -e "Introduca Estos Comandos En La Terminal"
+#echo -e "apt-get install python -y"
+#echo -e "apt-get install python pip -y"
+#exit
 fi
 echo -e "\033[1;31mPROXY PYTHON COLOR\033[0m"
 echo -e "$BARRA"
-echo -ne "Introduzca puerto: "
+echo -ne "Introduzca el Puerto SSH: "
+read portssh
+echo -ne "Introduzca el Puerto del Proxy: "
 read port
 while [[ -z $FMSG || $FMSG = @(s|S|y|Y) ]]; do
 echo -e "$BARRA"
@@ -70,7 +73,7 @@ LISTENING_PORT = int("$port")
 PASS = str("$ipdns")
 BUFLEN = 4096 * 4
 TIMEOUT = 60
-DEFAULT_HOST = '127.0.0.1:443'
+DEFAULT_HOST = '127.0.0.1:' + str($portssh)
 msg = "HTTP/1.1 200 <strong>($RETORNO)</strong>\r\nContent-length: 0\r\n\r\nHTTP/1.1 200 !!!conexion exitosa!!!\r\n\r\n"
 RESPONSE = str(msg)
 
